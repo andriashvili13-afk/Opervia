@@ -9,3 +9,13 @@
     "binding": "ASSETS"
   }
 }
+{
+  // ...
+  "d1_databases": [
+    {
+      "binding": "Opervia",
+      "database_id": "dac3c16b-4a19-4ec7-870a-39408d1ecfe4"
+    }
+  ],
+  // ...
+}
