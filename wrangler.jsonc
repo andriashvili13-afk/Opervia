@@ -1,10 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-<<<<<<< HEAD
-  "name": "opervia.andriashvili13.workers.dev",
-=======
+
   "name": "opervia",
->>>>>>> 29ee4d703ae005a58ddb6bb091ab86ea657929ce
   "main": "src/worker.js",
   "compatibility_date": "2026-10-25",
   "assets": {
