@@ -1,0 +1,16 @@
+{
+  "name": "opervia-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Opervia website and file-based content management system",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
