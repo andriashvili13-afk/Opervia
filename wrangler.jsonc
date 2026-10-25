@@ -19,3 +19,10 @@
   ],
   // ...
 }
+{
+  // ...
+  "observability": {
+    "enabled": false
+  },
+  // ...
+}
