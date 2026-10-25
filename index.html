@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Flowframe — Delivery Excellence, პროცესების გაუმჯობესება და AI enablement ტექნოლოგიური კომპანიებისთვის." />
+  <title>Flowframe — Delivery Excellence & AI Enablement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #10221f;
+      --ink-soft: #49605a;
+      --mist: #f5f7f4;
+      --paper: #fffefb;
+      --line: #dae3dd;
+      --moss: #174e46;
+      --teal: #0e7a6f;
+      --lime: #d4f271;
+      --coral: #ff835a;
+      --sand: #eef1db;
+      --mono: "DM Mono", monospace;
+      --sans: "Noto Sans Georgian", "Manrope", Arial, sans-serif;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --shadow: 0 18px 60px rgba(20, 48, 40, .09);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--teal); font: 500 11px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    .section { padding: 120px 0; }
+    .section-tint { background: var(--mist); }
+    h1, h2, h3, p { margin-top: 0; }
+    h2 { max-width: 760px; margin: 17px 0 0; font-size: clamp(31px, 4.2vw, 57px); line-height: 1.12; letter-spacing: -.055em; }
+    .lead { color: var(--ink-soft); font-size: 17px; line-height: 1.7; }
+    .button {
+      display: inline-flex; justify-content: center; align-items: center; gap: 11px;
+      min-height: 52px; padding: 0 20px; border: 1px solid transparent; border-radius: 100px;
+      font-size: 14px; font-weight: 700; transition: transform .2s ease, background .2s ease, color .2s ease, border .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button svg { width: 16px; height: 16px; }
+    .button-dark { color: white; background: var(--ink); }
+    .button-dark:hover { background: var(--moss); }
+    .button-lime { color: var(--ink); background: var(--lime); }
+    .button-lime:hover { background: #e0fb8c; }
+    .button-ghost { color: var(--ink); border-color: rgba(16,34,31,.2); background: rgba(255,255,255,.45); }
+    .button-ghost:hover { background: white; border-color: var(--ink); }
+
+    /* Header */
+    .announcement { padding: 11px 24px; color: #dcece8; background: #102a26; text-align: center; font-size: 12px; }
+    .announcement strong { color: var(--lime); font-weight: 700; }
+    .site-header { position: sticky; top: 0; z-index: 40; background: rgba(255,254,251,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(16,34,31,.06); }
+    .nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font: 700 19px/1 var(--sans); letter-spacing: -.05em; }
+    .logo-mark { position: relative; display: grid; grid-template-columns: repeat(2, 8px); gap: 3px; width: 19px; }
+    .logo-mark i { display: block; aspect-ratio: 1; background: var(--teal); border-radius: 2px; }
+    .logo-mark i:nth-child(2) { background: var(--lime); }
+    .logo-mark i:nth-child(3) { background: var(--coral); }
+    .nav-links { display: flex; align-items: center; gap: 27px; margin-left: auto; color: #365049; font-size: 13px; font-weight: 600; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav .button { min-height: 42px; font-size: 13px; }
+    .menu-toggle { display: none; width: 42px; height: 42px; padding: 0; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 50%; }
+    .menu-toggle span, .menu-toggle::before, .menu-toggle::after { display: block; width: 16px; height: 1.5px; margin: 3px auto; background: currentColor; content: ""; transition: .2s; }
+
+    /* Hero */
+    .hero { overflow: hidden; position: relative; padding: 104px 0 72px; background: #f7f9f5; }
+    .hero::before { content: ""; position: absolute; width: 680px; height: 680px; top: -350px; right: -170px; border: 1px solid rgba(23,78,70,.16); border-radius: 50%; box-shadow: 0 0 0 72px rgba(23,78,70,.035), 0 0 0 145px rgba(23,78,70,.025); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,1.14fr) minmax(370px,.86fr); align-items: center; gap: 68px; position: relative; }
+    .hero h1 { max-width: 750px; margin: 20px 0 23px; font-size: clamp(42px, 5.6vw, 76px); line-height: 1.03; letter-spacing: -.07em; }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero-copy { max-width: 650px; margin-bottom: 33px; color: var(--ink-soft); font-size: 17px; line-height: 1.72; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .trustline { display: flex; align-items: center; gap: 16px; margin-top: 52px; color: #60736d; font-size: 12px; }
+    .avatars { display: flex; padding-left: 7px; }
+    .avatar { width: 29px; height: 29px; margin-left: -7px; border: 2px solid #f7f9f5; border-radius: 50%; background: #c3d6ca; }
+    .avatar:nth-child(1) { background: #77a9a0; }.avatar:nth-child(2) { background: #eea788; }.avatar:nth-child(3) { background: #aab69c; }.avatar:nth-child(4) { background: #496f69; }
+    .hero-board { position: relative; min-height: 460px; padding: 21px; border: 1px solid rgba(23,78,70,.16); border-radius: var(--radius-lg); background: rgba(255,255,255,.74); box-shadow: var(--shadow); transform: rotate(2deg); }
+    .hero-board::after { content: ""; position: absolute; z-index: -1; inset: 20px -16px -18px 23px; border-radius: var(--radius-lg); background: var(--lime); opacity: .72; transform: rotate(-4deg); }
+    .board-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+    .board-label { font: 500 10px/1 var(--mono); letter-spacing: .1em; color: var(--ink-soft); text-transform: uppercase; }
+    .live-dot { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font: 500 10px var(--mono); }
+    .live-dot::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #42cba8; box-shadow: 0 0 0 4px rgba(66,203,168,.15); }
+    .signal { display: flex; align-items: flex-end; gap: 9px; height: 112px; margin: 20px 0 18px; padding: 13px 11px 7px; border-radius: 12px; background: #edf3ef; }
+    .signal span { flex: 1; min-width: 8px; border-radius: 4px 4px 1px 1px; background: #9db8ae; }
+    .signal span:nth-child(1) { height: 38%; }.signal span:nth-child(2) { height: 51%; }.signal span:nth-child(3) { height: 48%; }.signal span:nth-child(4) { height: 69%; }.signal span:nth-child(5) { height: 62%; }.signal span:nth-child(6) { height: 82%; background: var(--teal); }.signal span:nth-child(7) { height: 94%; background: var(--lime); }
+    .board-kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+    .kpi { padding: 15px; border: 1px solid var(--line); border-radius: 12px; }
+    .kpi small { display: block; color: var(--ink-soft); font-size: 10px; }.kpi strong { display: block; margin-top: 7px; font-size: 23px; letter-spacing: -.06em; }.kpi .up { color: var(--teal); font: 500 10px var(--mono); }
+    .board-stack { display: grid; gap: 9px; margin-top: 14px; }
+    .board-item { display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: 10px; background: #f7f9f5; color: #38534c; font-size: 11px; font-weight: 600; }
+    .board-item i { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }.board-item:nth-child(2) i { background: var(--lime); }.board-item:nth-child(3) i { background: var(--teal); }
+
+    /* Logo strip */
+    .proof-strip { padding: 23px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); }
+    .proof-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .proof-intro { max-width: 180px; color: var(--ink-soft); font-size: 11px; line-height: 1.45; }
+    .proof-list { display: flex; flex: 1; align-items: center; justify-content: space-between; gap: 30px; color: #80918b; font: 500 13px var(--mono); letter-spacing: -.06em; }
+
+    /* Value */
+    .split-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 72px; }
+    .split-intro .lead { max-width: 485px; margin: 0 0 4px; }
+    .outcome-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 17px; margin-top: 58px; }
+    .outcome { min-height: 254px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--paper); }
+    .outcome:nth-child(2) { background: var(--moss); color: white; border-color: var(--moss); }.outcome:nth-child(2) p { color: #b7d0c9; }.outcome:nth-child(2) .outcome-icon { color: var(--lime); border-color: rgba(212,242,113,.3); }
+    .outcome-icon { display: grid; place-items: center; width: 38px; height: 38px; color: var(--teal); border: 1px solid var(--line); border-radius: 11px; }
+    .outcome-icon svg { width: 20px; }
+    .outcome h3 { margin: 43px 0 10px; font-size: 21px; letter-spacing: -.045em; }.outcome p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.65; }
+
+    /* Services */
+    .service-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 90px; }
+    .service-aside { position: sticky; top: 115px; }.service-aside .lead { max-width: 340px; margin-top: 23px; }
+    .service-aside .button { margin-top: 26px; }
+    .services { border-top: 1px solid var(--line); }
+    .service { display: grid; grid-template-columns: 56px 1fr auto; gap: 21px; padding: 27px 0; border-bottom: 1px solid var(--line); transition: padding .25s; }
+    .service:hover { padding-left: 7px; }
+    .service-num { color: var(--teal); font: 500 11px var(--mono); padding-top: 5px; }.service h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -.045em; }.service p { max-width: 500px; margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.65; }.service-arrow { display: grid; place-items: center; width: 37px; height: 37px; margin-top: 2px; color: var(--teal); border: 1px solid var(--line); border-radius: 50%; transition: .2s; }.service:hover .service-arrow { color: white; background: var(--teal); border-color: var(--teal); }
+
+    /* Diagnostic */
+    .diagnostic { padding: 0 0 120px; background: var(--mist); }
+    .diagnostic-box { display: grid; grid-template-columns: 1.15fr .85fr; overflow: hidden; border-radius: var(--radius-lg); background: var(--ink); color: white; }
+    .diagnostic-copy { padding: 64px; }.diagnostic-copy .eyebrow { color: var(--lime); }.diagnostic-copy h2 { margin-top: 19px; max-width: 590px; }.diagnostic-copy p { max-width: 530px; margin: 22px 0 30px; color: #b9cbc5; font-size: 15px; line-height: 1.7; }
+    .diagnostic-points { display: grid; gap: 13px; padding: 47px; background: #e8efe9; color: var(--ink); }.diagnostic-points h3 { margin: 0 0 7px; font-size: 15px; }.check { display: flex; gap: 10px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #ccdbd4; color: #446059; font-size: 13px; line-height: 1.45; }.check:last-child { border-bottom: 0; }.check::before { flex: 0 0 auto; content: "✓"; display: grid; place-items: center; width: 19px; height: 19px; color: var(--teal); border-radius: 50%; background: var(--lime); font: 700 12px/1 var(--sans); }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; margin-top: 57px; border-top: 1px solid var(--line); }
+    .step { position: relative; padding: 26px 25px 12px 0; min-height: 205px; border-right: 1px solid var(--line); }.step + .step { padding-left: 25px; }.step:last-child { border: 0; }.step-number { display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; color: var(--teal); border: 1px solid var(--line); border-radius: 50%; font: 500 11px var(--mono); }.step h3 { margin: 37px 0 9px; font-size: 17px; letter-spacing: -.04em; }.step p { margin: 0; max-width: 215px; color: var(--ink-soft); font-size: 12px; line-height: 1.65; }
+
+    /* Metrics */
+    .metric-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; align-items: center; }
+    .metric-layout .lead { max-width: 380px; margin: 24px 0 27px; }.metric-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }.metric { min-height: 166px; padding: 23px; border-radius: var(--radius-md); background: white; border: 1px solid var(--line); }.metric:nth-child(1) { background: var(--lime); border-color: var(--lime); }.metric:nth-child(4) { background: #ffe0d4; border-color: #ffe0d4; }.metric strong { display: block; margin-bottom: 12px; font-size: 45px; line-height: 1; letter-spacing: -.075em; }.metric span { display: block; max-width: 145px; color: #40564f; font-size: 12px; line-height: 1.45; }.metric small { display: block; margin-top: 7px; color: #698078; font: 10px var(--mono); }
+
+    /* About */
+    .approach { overflow: hidden; position: relative; background: #e7efe9; }.approach::after { content: ""; position: absolute; width: 480px; height: 480px; bottom: -275px; right: -90px; border: 60px solid rgba(14,122,111,.09); border-radius: 50%; }
+    .approach-grid { display: grid; grid-template-columns: 1fr .86fr; gap: 100px; position: relative; z-index: 1; }.approach-grid .lead { max-width: 560px; margin-top: 22px; }.principles { display: grid; align-content: start; gap: 18px; }.principle { display: grid; grid-template-columns: 42px 1fr; gap: 13px; padding: 19px 0; border-bottom: 1px solid #cadad1; }.principle:last-child { border: 0; }.principle-num { color: var(--teal); font: 500 11px var(--mono); }.principle h3 { margin: 0 0 7px; font-size: 15px; letter-spacing: -.03em; }.principle p { margin: 0; color: var(--ink-soft); font-size: 12px; line-height: 1.6; }
+
+    /* FAQ */
+    .faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 105px; align-items: start; }.faq-layout .lead { margin-top: 20px; max-width: 330px; }.faq-list { border-top: 1px solid var(--line); }.faq details { border-bottom: 1px solid var(--line); }.faq summary { position: relative; padding: 22px 42px 22px 0; list-style: none; font-size: 15px; font-weight: 700; line-height: 1.45; cursor: pointer; }.faq summary::-webkit-details-marker { display: none; }.faq summary::after { content: "+"; position: absolute; right: 4px; top: 18px; color: var(--teal); font: 400 27px/1 var(--sans); transition: transform .2s; }.faq details[open] summary::after { transform: rotate(45deg); }.faq-answer { padding: 0 36px 23px 0; color: var(--ink-soft); font-size: 13px; line-height: 1.7; }
+
+    /* Contact */
+    .contact { padding: 106px 0 0; background: var(--moss); color: white; }.contact-grid { display: grid; grid-template-columns: 1fr .88fr; gap: 105px; }.contact .eyebrow { color: var(--lime); }.contact h2 { max-width: 590px; margin-top: 19px; }.contact > .wrap > .contact-grid > div > p { max-width: 490px; margin: 22px 0 0; color: #b9d0c9; font-size: 15px; line-height: 1.72; }.contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; padding: 27px; border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius-md); background: rgba(255,255,255,.06); }.field { display: grid; gap: 7px; }.field.wide { grid-column: 1/-1; }.field label { color: #d7e6e1; font-size: 11px; font-weight: 600; }.field input, .field textarea { width: 100%; color: white; outline: none; resize: vertical; padding: 11px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.28); border-radius: 0; background: transparent; font-size: 13px; }.field input::placeholder, .field textarea::placeholder { color: #92aaa3; }.field input:focus, .field textarea:focus { border-color: var(--lime); }.contact-form .button { grid-column: 1/-1; justify-self: start; margin-top: 8px; }.form-note { grid-column: 1/-1; margin: -5px 0 0; color: #a9c1ba; font-size: 10px; line-height: 1.5; }.form-status { grid-column: 1/-1; display: none; margin: 0; color: var(--lime); font-size: 12px; }.form-status.visible { display: block; }
+    .footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; margin-top: 100px; padding: 25px 0; border-top: 1px solid rgba(255,255,255,.18); color: #afc6bf; font-size: 11px; }.footer .logo { color: white; }.footer-links { display: flex; gap: 18px; }.footer a:hover { color: white; }
+
+    @media (max-width: 900px) {
+      .section { padding: 86px 0; }.hero { padding-top: 76px; }.hero-grid, .service-layout, .metric-layout, .approach-grid, .faq-layout, .contact-grid { grid-template-columns: 1fr; gap: 50px; }.hero-board { max-width: 500px; width: calc(100% - 20px); margin: 11px auto 22px; }.service-aside { position: static; }.diagnostic { padding-bottom: 86px; }.diagnostic-box { grid-template-columns: 1fr; }.steps { grid-template-columns: 1fr 1fr; }.step:nth-child(2) { border-right: 0; }.step:nth-child(3) { padding-left: 0; }.step { border-bottom: 1px solid var(--line); }.step:nth-child(3), .step:nth-child(4) { padding-top: 25px; }.step:nth-child(4) { border-bottom: 0; }.contact { padding-top: 86px; }.footer { margin-top: 70px; }
+    }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 34px, 1180px); }.announcement { font-size: 10px; padding: 10px 18px; }.nav { height: 66px; }.nav-links, .nav > .button { display: none; }.menu-toggle { display: block; }.nav-links.open { position: absolute; top: 66px; right: 17px; left: 17px; display: grid; gap: 3px; padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,254,251,.98); box-shadow: var(--shadow); }.nav-links.open a { padding: 12px; }.nav-links.open + .button { display: none; }.hero { padding: 67px 0 52px; }.hero h1 { font-size: clamp(37px, 11.2vw, 55px); }.hero-copy { font-size: 15px; }.hero-actions .button { width: 100%; }.trustline { margin-top: 35px; }.hero-board { min-height: 420px; padding: 17px; transform: rotate(1deg); }.proof-inner { display: block; }.proof-intro { max-width: none; margin-bottom: 18px; }.proof-list { justify-content: flex-start; gap: 23px; flex-wrap: wrap; }.proof-list span:last-child { display: none; }.split-intro { grid-template-columns: 1fr; gap: 22px; }.outcome-grid { grid-template-columns: 1fr; margin-top: 40px; }.outcome { min-height: 205px; }.service { grid-template-columns: 33px 1fr auto; gap: 12px; }.service h3 { font-size: 18px; }.service p { font-size: 12px; }.service-arrow { width: 31px; height: 31px; }.diagnostic-copy, .diagnostic-points { padding: 32px 25px; }.diagnostic-copy h2 { font-size: 30px; }.steps { grid-template-columns: 1fr; margin-top: 39px; }.step, .step + .step, .step:nth-child(3) { min-height: auto; padding: 24px 0; border-right: 0; border-bottom: 1px solid var(--line); }.step h3 { margin-top: 22px; }.step:last-child { border-bottom: 0; }.metric-list { gap: 9px; }.metric { min-height: 145px; padding: 18px; }.metric strong { font-size: 35px; }.metric span { font-size: 11px; }.faq-layout { gap: 35px; }.contact-form { grid-template-columns: 1fr; padding: 21px; }.field.wide, .contact-form .button, .form-note, .form-status { grid-column: auto; }.footer { align-items: flex-start; flex-direction: column; }.footer-links { flex-wrap: wrap; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement"><strong>Flowframe</strong> არის დროებითი ბრენდის სახელი — ვებგვერდის კონცეფციისთვის.</div>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="მთავარი ნავიგაცია">
+      <a class="logo" href="#top" aria-label="Flowframe მთავარ გვერდზე"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>flowframe</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#services">სერვისები</a>
+        <a href="#approach">მიდგომა</a>
+        <a href="#results">შედეგები</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="button button-dark" href="#contact">შევაფასოთ თქვენი პროცესი <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <button class="menu-toggle" type="button" aria-label="მენიუს გახსნა" aria-controls="nav-links" aria-expanded="false"><span></span></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Delivery excellence · AI enablement</span>
+          <h1>ნაკლები ქაოსი.<br><em>მეტი პროგრესი.</em></h1>
+          <p class="hero-copy">ვხმარობთ ტექნოლოგიურ და პროდუქტის გუნდებს, რომ მიწოდების პროცესი გახადონ უფრო მარტივი, პროგნოზირებადი და გაზომვადი — ადამიანების გადატვირთვის გარეშე.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#contact">დავგეგმოთ გაცნობითი ზარი <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="button button-ghost" href="#diagnostic">იხილეთ Delivery Diagnostic</a>
+          </div>
+          <div class="trustline"><span class="avatars" aria-hidden="true"><i class="avatar"></i><i class="avatar"></i><i class="avatar"></i><i class="avatar"></i></span><span>ტექნოლოგიური ლიდერებისთვის, რომლებსაც სურთ ზრდა — სისტემური ქაოსის გარეშე.</span></div>
+        </div>
+        <div class="hero-board" aria-label="Delivery Intelligence-ის ილუსტრაცია">
+          <div class="board-top"><span class="board-label">delivery intelligence</span><span class="live-dot">LIVE VIEW</span></div>
+          <div class="signal" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="board-kpi">
+            <div class="kpi"><small>FLOW EFFICIENCY</small><strong>73%</strong><span class="up">↑ 18% this quarter</span></div>
+            <div class="kpi"><small>DELIVERY CONFIDENCE</small><strong>8.4</strong><span class="up">↑ 1.9 points</span></div>
+          </div>
+          <div class="board-stack" aria-hidden="true"><div class="board-item"><i></i>პრიორიტეტები შეთანხმებულია</div><div class="board-item"><i></i>ბლოკერების ესკალაცია — ავტომატურად</div><div class="board-item"><i></i>ხელმძღვანელებისთვის ერთი სანდო სურათი</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="გამოცდილების სფეროები">
+      <div class="wrap proof-inner"><p class="proof-intro">ინსტრუმენტები მნიშვნელოვანია — მაგრამ მხოლოდ მაშინ, როცა მუშაობის წესს ემსახურება.</p><div class="proof-list"><span>JIRA / CONFLUENCE</span><span>PRODUCT OPS</span><span>AI WORKFLOWS</span><span>AGILE DELIVERY</span><span>PROCESS DESIGN</span></div></div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro"><div><span class="eyebrow">რატომ Flowframe</span><h2>პროცესს ვაწყობთ ბიზნესის მიზნის გარშემო.</h2></div><p class="lead">არ ვიწყებთ Jira-ს დაფით და არც Agile რიტუალების კოპირებით. ჯერ ვპოულობთ სად იკარგება ენერგია, დრო და ფოკუსი; შემდეგ ვქმნით იმ სისტემას, რომელიც თქვენი გუნდისთვის რეალურად მუშაობს.</p></div>
+        <div class="outcome-grid">
+          <article class="outcome"><div class="outcome-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5m0 14h16M8 15l3-4 3 2 5-7"/></svg></div><h3>ხილვადი პროგრესი</h3><p>ყველამ იცის, რას ვაკეთებთ, რატომ და სად არის რეალური რისკი — შეხვედრების სიმრავლის გარეშე.</p></article>
+          <article class="outcome"><div class="outcome-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></div><h3>ნაკლები ხელით მუშაობა</h3><p>AI და ავტომატიზაცია ამცირებს რუტინულ კოორდინაციას, ხოლო გუნდს უბრუნდება დრო მნიშვნელოვანი საქმისთვის.</p></article>
+          <article class="outcome"><div class="outcome-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 17l5-5 4 3 7-8M16 7h4v4"/></svg></div><h3>პროგნოზირებადი მიწოდება</h3><p>მეტრიკები და სამუშაო შეთანხმებები, რომლებიც დაგეხმარებათ დაპირებების შესრულებაში — უფრო მშვიდად.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="services">
+      <div class="wrap service-layout">
+        <aside class="service-aside"><span class="eyebrow">რა შეგვიძლია გავაკეთოთ</span><h2>სწორი ჩარევა, სწორ მომენტში.</h2><p class="lead">შეგიძლიათ დაიწყოთ კონკრეტული პრობლემით ან მთლიანად Delivery სისტემის გადახედვით.</p><a class="button button-dark" href="#contact">მითხარით თქვენი გამოწვევა</a></aside>
+        <div class="services">
+          <article class="service"><span class="service-num">01</span><div><h3>Delivery სისტემის დიაგნოსტიკა</h3><p>მოვისმენთ გუნდს, გავაანალიზებთ ნაკადს, ინსტრუმენტებსა და მეტრიკებს — და მოგცემთ პრიორიტეტულ, მოქმედებისათვის მზად გზამკვლევს.</p></div><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service"><span class="service-num">02</span><div><h3>პროცესების დიზაინი და გამარტივება</h3><p>ვაშენებთ სამუშაო შეთანხმებებს, გადაწყვეტილებების მარშრუტს, პასუხისმგებლობებსა და მსუბუქ დოკუმენტაციას, რომ სისტემა დარჩეს გასაგები ზრდის დროსაც.</p></div><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service"><span class="service-num">03</span><div><h3>Jira &amp; Confluence, როგორც ოპერაციული სისტემა</h3><p>ვაწყობთ სტრუქტურას, workflow-ებს, dashboard-ებსა და ცოდნის სივრცეს ისე, რომ ინსტრუმენტი აჩქარებდეს საქმეს და არა ამძიმებდეს მას.</p></div><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service"><span class="service-num">04</span><div><h3>AI Enablement და პრაქტიკული ავტომატიზაცია</h3><p>ვპოულობთ განმეორებად სამუშაოს და ვქმნით უსაფრთხო AI workflow-ებს: რეპორტინგი, ანალიზი, ცოდნის მოძიება, შემაჯამებელი მასალები და სხვა.</p></div><span class="service-arrow" aria-hidden="true">↗</span></article>
+          <article class="service"><span class="service-num">05</span><div><h3>ლიდერებისა და გუნდების ქოუჩინგი</h3><p>ვაძლიერებთ იმ ჩვევებს, რაც ცვლილებას ამყარებს: პრიორიტეტების მართვა, ეფექტიანი დაგეგმვა, უკუკავშირი და ჯანსაღი ანგარიშვალდებულება.</p></div><span class="service-arrow" aria-hidden="true">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="diagnostic" id="diagnostic">
+      <div class="wrap diagnostic-box">
+        <div class="diagnostic-copy"><span class="eyebrow">საწყისი შეთავაზება</span><h2>Delivery Diagnostic</h2><p>ორიენტირებული, მოკლე შეფასება იმ კომპანიებისთვის, რომლებსაც სურთ გაიგონ: სად არის მათი მთავარი bottleneck და რომელ ცვლილებას ექნება ყველაზე სწრაფი გავლენა.</p><a class="button button-lime" href="#contact">მივიღო შეფასება <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        <div class="diagnostic-points"><h3>რას მიიღებთ</h3><div class="check">მიწოდების მიმდინარე სისტემის მკაფიო, მიუკერძოებელ სურათს</div><div class="check">3–5 პრიორიტეტულ შესაძლებლობას და მათი გავლენის შეფასებას</div><div class="check">90-დღიან, რეალისტურ სამოქმედო რეკომენდაციას</div><div class="check">ლიდერის დისკუსიისთვის გამზადებულ მოკლე მიგნებების დოკუმენტს</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap"><span class="eyebrow">როგორ ვმუშაობთ</span><h2>ცვლილება, რომელსაც გუნდი ითვისებს.</h2><div class="steps"><article class="step"><span class="step-number">01</span><h3>ვუსმენთ</h3><p>ვარჩევთ ბიზნესის კონტექსტს, ადამიანების გამოცდილებასა და რეალურ მონაცემებს.</p></article><article class="step"><span class="step-number">02</span><h3>ვადგენთ ფოკუსს</h3><p>ვირჩევთ ყველაზე ღირებულ პრობლემას — არა ყველაზე ხმაურს.</p></article><article class="step"><span class="step-number">03</span><h3>ვქმნით და ვამოწმებთ</h3><p>ვიწყებთ მცირე, პრაქტიკული ცვლილებით და ვზომავთ მის ეფექტს.</p></article><article class="step"><span class="step-number">04</span><h3>ვამყარებთ</h3><p>ვტოვებთ პროცესს, დოკუმენტაციასა და უნარებს, რომ ცვლილება დარჩეს.</p></article></div></div>
+    </section>
+
+    <section class="section section-tint" id="results">
+      <div class="wrap metric-layout"><div><span class="eyebrow">რას ვზომავთ</span><h2>შედეგი უნდა ჩანდეს.</h2><p class="lead">გეგმის შესრულებაზე არ ვჩერდებით. ვირჩევთ რამდენიმე მეტრიკას, რომელიც აჩვენებს, გახდა თუ არა სამუშაო რეალურად უკეთესი.</p><a class="button button-ghost" href="#contact">განვიხილოთ თქვენი მეტრიკები</a></div><div class="metric-list"><div class="metric"><strong>↓</strong><span>lead time და გაურკვეველი ლოდინის შემცირება</span></div><div class="metric"><strong>↑</strong><span>მიწოდების პროგნოზირებადობა და სანდოობა</span></div><div class="metric"><strong>↗</strong><span>გუნდის ფოკუსი და flow efficiency</span></div><div class="metric"><strong>◎</strong><span>გადაწყვეტილებების ხილვადობა ლიდერებისთვის</span><small>OUTCOMES, NOT VANITY METRICS</small></div></div></div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="wrap approach-grid"><div><span class="eyebrow">ჩვენი პოზიცია</span><h2>კონსულტაცია, რომელიც მუშაობას ამსუბუქებს.</h2><p class="lead">Flowframe აერთიანებს Delivery Excellence-ს, ორგანიზაციულ ქოუჩინგს, პროცესების დიზაინსა და AI-ს. ეს ნიშნავს, რომ ტექნოლოგია ყოველთვის ადამიანებისა და ბიზნესის რეალურ საჭიროებას ემსახურება.</p></div><div class="principles"><article class="principle"><span class="principle-num">01</span><div><h3>პრობლემიდან ინსტრუმენტისკენ</h3><p>არ ვყიდით framework-ს. ვირჩევთ მეთოდს, რომელიც კონკრეტულ კონტექსტს შეესაბამება.</p></div></article><article class="principle"><span class="principle-num">02</span><div><h3>ადამიანურ ტემპში</h3><p>ცვლილება ვერ დაიმკვიდრებს თავს, თუ გუნდს მხოლოდ ახალი წესები დარჩება.</p></div></article><article class="principle"><span class="principle-num">03</span><div><h3>მხოლოდ საჭირო სიმარტულე</h3><p>ჩვენი მიზანია ნაკლები, მაგრამ გასაგები პროცესი — მეტი ბიუროკრატიის გარეშე.</p></div></article></div></div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="wrap faq-layout"><div><span class="eyebrow">ხშირი კითხვები</span><h2>მოკლე პასუხები.</h2><p class="lead">თუ თქვენი კითხვა აქ არაა, მოგვწერეთ — კონტექსტის მოსმენა ჩვენი პირველი სამუშაო ნაბიჯია.</p></div><div class="faq-list"><details><summary>ვისთვის არის Flowframe-ის სერვისები?</summary><div class="faq-answer">უპირველესად — მზარდი ტექნოლოგიური, პროდუქტისა და ციფრული სერვისების კომპანიებისთვის, რომლებსაც ჰყავთ რამდენიმე გუნდი ან ზრდის ეტაპზე გადასული ორგანიზაცია. ვმუშაობთ საქართველოშიც და საერთაშორისო, დისტანციურ გუნდებთანაც.</div></details><details><summary>აუცილებელია Jira-ს ან სხვა კონკრეტული ინსტრუმენტის გამოყენება?</summary><div class="faq-answer">არა. ინსტრუმენტი შედეგის მისაღწევი საშუალებაა. თუ Jira ან Confluence თქვენს გარემოს შეესაბამება, შევძლებთ მის გამართვას; თუ არა — რეკომენდაციას თქვენი რეალური საჭიროებიდან გამომდინარე მოგცემთ.</div></details><details><summary>რამდენ ხანს გრძელდება თანამშრომლობა?</summary><div class="faq-answer">ეს გამოწვევაზეა დამოკიდებული. Delivery Diagnostic მოკლე, ფოკუსირებული ჩარევაა; სისტემის რეალური გაუმჯობესება ხშირად მიმდინარეობს ეტაპებად — შედეგების ნახვისა და გუნდის ტემპის გათვალისწინებით.</div></details><details><summary>AI ავტომატიზაციით უსაფრთხოების რისკს ხომ არ ვიღებთ?</summary><div class="faq-answer">უსაფრთხოება და მონაცემების კონფიდენციალურობა დიზაინის ნაწილია. თითოეულ workflow-ს განვიხილავთ მონაცემთა ტიპის, წვდომის, ადამიანის კონტროლისა და არსებული შიდა წესების გათვალისწინებით.</div></details></div></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap"><div class="contact-grid"><div><span class="eyebrow">დავიწყოთ საუბარი</span><h2>თქვენი გუნდი შეიძლება უფრო მშვიდადაც მუშაობდეს.</h2><p>გაგვიზიარეთ მოკლედ სად ხართ გაჩერებული. პირველ ზარზე ერთად განვიხილავთ კონტექსტს და ვნახავთ, აქვს თუ არა თანამშრომლობას აზრი.</p></div><form class="contact-form" id="contact-form" novalidate><div class="field"><label for="name">სახელი და გვარი</label><input id="name" name="name" type="text" autocomplete="name" placeholder="თქვენი სახელი" required /></div><div class="field"><label for="company">კომპანია</label><input id="company" name="company" type="text" autocomplete="organization" placeholder="კომპანიის სახელი" required /></div><div class="field wide"><label for="email">ელფოსტა</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required /></div><div class="field wide"><label for="message">რა გამოწვევა გაქვთ?</label><textarea id="message" name="message" rows="3" placeholder="მაგ. გუნდები ვერ ხედავენ საერთო პრიორიტეტებს…" required></textarea></div><button class="button button-lime" type="submit">მომწერეთ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="form-note">ფორმის გაგზავნით გაიხსნება თქვენი ელფოსტის პროგრამა. ჩასანაცვლებელია: hello@flowframe.consulting</p><p class="form-status" role="status" aria-live="polite">მადლობა — თქვენი ელფოსტის პროგრამა მზად არის გასახსნელად.</p></form></div><footer class="footer"><a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>flowframe</a><span>© <span id="year"></span> Flowframe. დროებითი ბრენდის კონცეფცია.</span><div class="footer-links"><a href="#services">სერვისები</a><a href="#faq">FAQ</a><a href="#top">ზემოთ ↑</a></div></footer></div>
+    </section>
+  </main>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'მენიუს დახურვა' : 'მენიუს გახსნა');
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contact-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Flowframe — ახალი მოთხოვნა: ' + data.get('company'));
+      const body = encodeURIComponent('სახელი: ' + data.get('name') + '\nკომპანია: ' + data.get('company') + '\nელფოსტა: ' + data.get('email') + '\n\nგამოწვევა:\n' + data.get('message'));
+      document.querySelector('.form-status').classList.add('visible');
+      window.location.href = 'mailto:hello@flowframe.consulting?subject=' + subject + '&body=' + body;
+    });
+  </script>
+</body>
+</html>
